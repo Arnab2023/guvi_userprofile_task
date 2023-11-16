@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import "./HomeProfile.css";
 const HomeProfile = () => {
-  const { loggedUser } = useUser();
+  const { loggedUser, setLoggedUser } = useUser();
   const [logg, setLogg] = useState("");
   const navigate = useNavigate();
 
@@ -11,6 +11,20 @@ const HomeProfile = () => {
     setLogg(loggedUser);
     console.log(loggedUser);
   }, []);
+
+  const HandleLogout = (e) => {
+    setLoggedUser({
+      id: "",
+      name: "",
+      email: "",
+      dob: "",
+      age: "",
+      gender: "",
+      mobile: "",
+      token: "",
+    });
+    navigate("/");
+  };
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +51,14 @@ const HomeProfile = () => {
             }}
           >
             Edit
+          </button>
+          <button
+            className="regbtn2"
+            onClick={(event) => {
+              HandleLogout(event);
+            }}
+          >
+            Logout
           </button>
         </>
       ) : (
