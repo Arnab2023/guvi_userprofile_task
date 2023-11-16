@@ -23,7 +23,7 @@ const HomeProfile = () => {
       mobile: "",
       token: "",
     });
-    navigate("/");
+    navigate("/login");
   };
 
   const HandleSubmit = (e) => {

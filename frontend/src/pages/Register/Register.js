@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -126,6 +127,10 @@ const Form = ({
             REGISTER
           </button>
         </form>
+        <p>
+          {" "}
+          Already Registered?<Link to="/login"> Log in</Link>{" "}
+        </p>
       </div>
     </div>
   );
